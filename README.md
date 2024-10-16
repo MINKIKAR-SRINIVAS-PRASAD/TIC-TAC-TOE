@@ -1,14 +1,13 @@
- 
 #include <stdio.h>
-void newboard();
-void printboard();
-int availablespace();
-void moveFORplayer1();
-void moveFORplayer2();
-char checkwinners();
 const char player1 = 'X';
 const char player2 = 'O';
 char board[3][3];
+void newboard();
+void printboard();
+void moveFORplayer1();
+void moveFORplayer2();
+int availablespace();
+char checkwinners();
 int main() 
 {
     newboard();
@@ -22,16 +21,17 @@ int main()
             printf("PLAYER 1 WON\n");
             return 0;
         }
-        if (availablespace() == 0)
-        {
-            break;  
-        }
+        
         moveFORplayer2();
         printboard();
         if (checkwinners() == player2) 
         {
             printf("PLAYER 2 WON\n");
             return 0;  
+        }
+        if (availablespace() == 0)
+        {
+            break;  
         }
     }
     printf("It's a draw!\n");
@@ -51,7 +51,7 @@ void printboard()
 {
     for (int i = 0; i < 3; i++)
     {
-        printf(" %c | %c | %c \n", board[i][0], board[i][1], board[i][2]);
+        printf(" %c | %c | %c \n", board[i][0], board[i][1],board[i][2]);
         if (i < 2) 
         {
             printf("---|---|---\n");
